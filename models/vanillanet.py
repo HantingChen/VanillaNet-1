@@ -79,11 +79,6 @@ class VanillaNet(nn.Module):
             nn.Conv2d(dims[-1], num_classes, 1),
         )
 
-    def change_act(self, m):
-        for i in range(self.depth):
-            self.stages[i].act_learn = m
-        self.act_learn = m
-
     def forward(self, x):
         x = self.stem(x)
 
